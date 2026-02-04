@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Alessandro & Agus — Aniversario</title>
+    <title>Andrés & Marina — San Valentín</title>
     <meta
       name="description"
-      content="Un regalo de aniversario: historia completa de Alessandro y Agus."
+      content="Un regalo de San Valentín: historia completa de Andrés y Marina."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -424,6 +424,93 @@
         display: none;
       }
 
+      .game-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 22px;
+        padding: 24px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .game-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .game-stats {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(60px, 1fr));
+        gap: 12px;
+      }
+
+      .game-tile {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        padding: 18px 0;
+        display: grid;
+        place-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+        user-select: none;
+      }
+
+      .game-tile.is-revealed {
+        background: rgba(255, 154, 168, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .game-tile.is-matched {
+        background: rgba(245, 197, 107, 0.25);
+        cursor: default;
+      }
+
+      .game-message {
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .match-card {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
+
+      .match-preview {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 154, 168, 0.16),
+          rgba(245, 197, 107, 0.14)
+        );
+        border-radius: 18px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .match-preview canvas {
+        width: 100%;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
       .footer {
         padding: 32px 6vw 60px;
         text-align: center;
@@ -474,6 +561,14 @@
         position: relative;
       }
 
+      .gift-modal-card {
+        width: min(1200px, 100%);
+        height: min(85vh, 860px);
+        grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+        grid-template-rows: auto 1fr;
+        padding: 24px;
+      }
+
       .modal-header {
         grid-column: 1 / -1;
         display: flex;
@@ -505,11 +600,68 @@
         min-height: 320px;
       }
 
+      .gift-preview {
+        grid-column: 1;
+        grid-row: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .gift-preview canvas {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 5 / 3;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .gift-details {
+        grid-column: 2;
+        grid-row: 2;
+        height: 100%;
+        align-content: center;
+      }
+
+      .gift-preview small {
+        margin-top: 8px;
+        color: rgba(245, 230, 239, 0.75);
+      }
+
       .card-preview canvas {
         width: 100%;
         border-radius: 14px;
         background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .gift-static {
+        height: 240px;
+        border-radius: 18px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 154, 168, 0.2),
+          rgba(245, 197, 107, 0.18)
+        );
+        border: 1px dashed rgba(255, 255, 255, 0.25);
+        display: grid;
+        place-items: center;
+        font-size: 56px;
+        color: #f6edf2;
+        text-align: center;
+        padding: 12px;
+      }
+
+      .gift-text {
+        margin: 0;
+        font-size: 15px;
+        color: var(--muted);
+      }
+
+      .gift-date {
+        margin: 0;
+        font-weight: 600;
+        color: #f5e6ef;
       }
 
       .form-field {
@@ -613,6 +765,50 @@
         .hero-card {
           order: -1;
         }
+        .game-grid {
+          grid-template-columns: repeat(3, minmax(60px, 1fr));
+        }
+        .gift-modal-card {
+          width: min(560px, 100%);
+          height: auto;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr auto;
+          padding: 18px;
+        }
+        .gift-preview {
+          grid-column: 1;
+          grid-row: 2;
+          height: auto;
+        }
+        .gift-preview canvas {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 5 / 3;
+        }
+        .gift-details {
+          grid-column: 1;
+          grid-row: 3;
+          height: auto;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .gift-modal-card {
+          width: min(860px, 100%);
+          height: auto;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr auto;
+        }
+        .gift-preview {
+          grid-column: 1;
+          grid-row: 2;
+          height: auto;
+        }
+        .gift-details {
+          grid-column: 1;
+          grid-row: 3;
+          height: auto;
+        }
       }
     </style>
   </head>
@@ -621,14 +817,14 @@
     <div class="floating-hearts" aria-hidden="true" id="hearts"></div>
 
     <header>
-      <div class="badge">Aniversario 2026 · Alessandro → Agus</div>
+      <div class="badge">San Valentín 2026 · Andrés → Marina</div>
       <section class="hero">
         <div>
-          <h1>Un aniversario contado en voz baja, dedicado a Agus.</h1>
+          <h1>Un San Valentín dedicado a Marina.</h1>
           <p>
-            Un regalo de Alessandro para celebrar lo que ya vivimos y lo que
-            seguimos eligiendo. Cada sección guarda instantes sutiles, gestos
-            cotidianos y la calma de sabernos en casa.
+            Un regalo de Andrés, hecho con detalles, memorias y promesas. Cada
+            sección guarda un instante nuestro: lo vivido y todo lo que todavía
+            queremos vivir.
           </p>
           <div class="cta">
             <button
@@ -639,7 +835,7 @@
                   .scrollIntoView({ behavior: 'smooth' })
               "
             >
-              Revivir la historia
+              Leer la historia
             </button>
             <button
               class="btn btn-ghost"
@@ -649,22 +845,22 @@
                   .scrollIntoView({ behavior: 'smooth' })
               "
             >
-              Ver los rituales
+              Ver los planes
             </button>
           </div>
         </div>
         <div class="hero-card">
           <div class="mini-story">
-            <h3>Para Agus</h3>
+            <h3>Para Marina</h3>
             <p>
-              Este sitio celebra lo que somos y lo que cuidamos cada día. Gracias
-              por la serenidad que traés a mis días.
+              Hoy celebramos el amor que nos une. Gracias por ser mi calma, mi
+              risa y mi hogar.
             </p>
             <div class="chips">
-              <span class="chip">Sobremesas lentas</span>
-              <span class="chip">Paseos de la mano</span>
-              <span class="chip">Notas escondidas</span>
-              <span class="chip">Hogar compartido</span>
+              <span class="chip">San Valentín</span>
+              <span class="chip">Romance</span>
+              <span class="chip">Abrazos</span>
+              <span class="chip">Futuro compartido</span>
             </div>
           </div>
         </div>
@@ -673,50 +869,50 @@
 
     <main>
       <section class="section" id="historia">
-        <h2>Historia completa, con detalles sutiles</h2>
+        <h2>Nuestra historia, con el corazón abierto</h2>
         <p>
-          Un recorrido por nuestra historia, contado en capítulos que guardan lo
-          más lindo que construimos en lo cotidiano.
+          Un recorrido por lo que somos, contado en capítulos que guardan lo más
+          lindo que construimos juntos.
         </p>
 
         <div class="timeline">
           <div class="moment">
             <span>✨</span>
             <div>
-              <h4>El día simple que se volvió especial</h4>
+              <h4>El día que cambió todo</h4>
               <p>
-                Un saludo breve, una charla sin apuro y esa sensación tranquila de
-                estar donde tenía que estar.
+                Una charla que se volvió refugio, una mirada que dijo más que
+                cualquier palabra. Ahí empezó nuestro camino.
               </p>
             </div>
           </div>
           <div class="moment">
             <span>💫</span>
             <div>
-              <h4>Los rituales pequeños</h4>
+              <h4>Lo que fuimos creando</h4>
               <p>
-                Mensajes que llegan justo, canciones que nos nombran, y una risa
-                que se volvió refugio sin hacer ruido.
+                Mensajes que no terminaban, planes que nacían y la certeza de
+                que con vos todo tiene sentido.
               </p>
             </div>
           </div>
           <div class="moment">
             <span>🌙</span>
             <div>
-              <h4>El abrazo que calma</h4>
+              <h4>Promesas sinceras</h4>
               <p>
-                Ese abrazo que no pide palabras y deja claro que elegimos cuidarnos
-                incluso cuando el mundo corre rápido.
+                Elegirnos cada día, cuidarnos en lo simple y abrazarnos fuerte
+                cuando el mundo aprieta.
               </p>
             </div>
           </div>
           <div class="moment">
             <span>🌿</span>
             <div>
-              <h4>El presente que elegimos</h4>
+              <h4>El presente que celebramos</h4>
               <p>
-                Hoy somos equipo: sabemos escucharnos, sostenernos y celebrar lo
-                simple. Lo nuestro se siente hogar.
+                Hoy somos equipo, somos hogar y también el mejor plan que
+                imaginé. Gracias por este amor.
               </p>
             </div>
           </div>
@@ -724,47 +920,48 @@
 
         <div class="love-letter">
           <p>
-            "Agus, gracias por tu ternura, por tu claridad y por esas formas
-            mínimas en las que me cuidás sin decirlo. Este aniversario me recuerda
-            que lo nuestro es suave y fuerte a la vez. Te amo en lo simple y en lo
-            eterno."
+            "Marina, gracias por tu ternura, por tu paciencia y por la manera en
+            la que me elegís. Este San Valentín me recuerda que lo nuestro es
+            amor del lindo: sincero, profundo y lleno de futuro. Te amo con
+            calma, con alegría y con ganas de quedarme."
           </p>
         </div>
       </section>
 
       <section class="section" id="planes">
-        <h2>Plan aniversario: lo que cuidamos</h2>
+        <h2>Plan premium: nuestro futuro</h2>
         <p>
-          Detalles pensados para abrazar lo que somos y lo que queremos seguir
-          construyendo.
+          Detalles pensados para cuidarnos y sumar aventuras. Porque lo lindo
+          también se diseña con amor.
         </p>
 
         <div class="premium-grid">
           <div class="card">
-            <h4>Escapada de aniversario</h4>
+            <h4>Viaje soñado</h4>
             <p>
-              Un viaje breve, sin reloj, para caminar despacio y guardar un nuevo
-              recuerdo.
+              Una escapada con calma, sin horarios estrictos, para recorrer
+              calles nuevas y sumar recuerdos.
             </p>
           </div>
           <div class="card">
-            <h4>Ritual de gratitud</h4>
+            <h4>Rituales de pareja</h4>
             <p>
-              Un mensaje cada semana con tres cosas que agradecemos del otro.
+              Desayunos lentos, playlist compartida y una carta escrita cada
+              mes.
             </p>
           </div>
           <div class="card">
-            <h4>Proyecto compartido</h4>
+            <h4>Proyecto en conjunto</h4>
             <p>
-              Algo nuestro hecho de a dos: con paciencia, con orgullo y con
-              cariño.
+              Un plan creativo a largo plazo: algo nuestro, hecho con paciencia
+              y cariño.
             </p>
           </div>
           <div class="card">
-            <h4>Calma cotidiana</h4>
+            <h4>Meta de bienestar</h4>
             <p>
-              Cuidarnos con hábitos simples: caminatas, charlas honestas y
-              recordarnos que la calma también es amor.
+              Cuidarnos juntos: caminatas, charlas honestas y recordarnos que la
+              calma también es amor.
             </p>
           </div>
         </div>
@@ -777,10 +974,10 @@
           siempre.
         </p>
         <div class="gallery">
-          <div class="photo">Foto 1 · una tarde tranquila</div>
-          <div class="photo">Foto 2 · una risa compartida</div>
-          <div class="photo">Foto 3 · paseo sin apuro</div>
-          <div class="photo">Foto 4 · nuestro aniversario</div>
+          <div class="photo">Foto 1 · nuestro primer abrazo</div>
+          <div class="photo">Foto 2 · risa compartida</div>
+          <div class="photo">Foto 3 · viaje o paseo</div>
+          <div class="photo">Foto 4 · día especial</div>
         </div>
       </section>
 
@@ -792,32 +989,53 @@
         </p>
         <div class="storyline">
           <details>
-            <summary>Capítulo I — Lo que me enseñás sin darte cuenta</summary>
+            <summary>Capítulo I — Lo que aprendí de vos</summary>
             <p>
-              Me enseñás a ir más despacio, a cuidar detalles y a confiar en lo
-              que sentimos. Con vos, todo se vuelve más simple.
+              Aprendí a mirar con calma, a cuidar detalles y a confiar en lo que
+              sentimos. Con vos, todo se vuelve más simple y más bonito.
             </p>
           </details>
           <details>
-            <summary>Capítulo II — Lo que más admiro de vos</summary>
+            <summary>Capítulo II — Lo que más admiro</summary>
             <p>
-              Admiro tu sensibilidad y tu firmeza suave. Tu forma de escuchar y
-              de sostener hace que todo se vea más claro.
+              Admiro tu sensibilidad y tu coraje. Tu manera de sostener, de
+              escuchar y de iluminar cada día.
             </p>
           </details>
           <details>
-            <summary>Capítulo III — Lo que prometo cuidar</summary>
+            <summary>Capítulo III — Lo que prometo</summary>
             <p>
-              Prometo elegirnos en lo pequeño y en lo grande. Prometo ser tu
-              abrigo y celebrar cada paso que das.
+              Prometo elegirnos, ser tu abrigo y tu impulso. Prometo celebrar
+              tus logros y cuidarte cuando lo necesites.
             </p>
           </details>
         </div>
       </section>
 
+      <section class="section" id="juego">
+        <h2>Mini juego: Memoria de amor</h2>
+        <p>
+          Encontrá las parejas de símbolos. Cuando completes el juego, aparece
+          un mensaje especial.
+        </p>
+        <div class="game-card">
+          <div class="game-header">
+            <div class="game-stats">
+              <span id="movesCount">Movimientos: 0</span>
+              <span id="pairsCount">Parejas: 0/6</span>
+            </div>
+            <button class="btn btn-ghost" id="resetGame">Reiniciar</button>
+          </div>
+          <div class="game-grid" id="gameGrid" aria-live="polite"></div>
+          <div class="game-message" id="gameMessage">
+            Tocá dos tarjetas para empezar.
+          </div>
+        </div>
+      </section>
+
       <section class="section">
         <div class="gift-callout">
-          <h2>Tu regalo de aniversario te espera</h2>
+          <h2>Tu regalo especial te espera</h2>
           <p>
             Un detalle descargable con foto, fecha y dedicatoria. Tocá el regalo
             para abrir la tarjeta.
@@ -833,9 +1051,53 @@
       </section>
     </main>
 
+    <div class="modal" id="matchModal" aria-hidden="true">
+      <div
+        class="modal-card match-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="matchTitle"
+      >
+        <div class="modal-header">
+          <div>
+            <div class="badge" style="font-size: 12px">Pareja encontrada</div>
+            <h3
+              id="matchTitle"
+              style="
+                margin: 8px 0 0;
+                font-family: &quot;Playfair Display&quot;, serif;
+              "
+            >
+              Recuerdo descargable
+            </h3>
+          </div>
+          <button class="close-btn" id="closeMatch">Cerrar</button>
+        </div>
+
+        <div class="match-preview">
+          <canvas
+            id="matchCanvas"
+            width="640"
+            height="420"
+            aria-label="Vista previa del recuerdo"
+          ></canvas>
+          <small style="color: var(--muted)">
+            Descargá esta postal cada vez que encuentres una pareja.
+          </small>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" id="downloadMatch">
+            Descargar recuerdo
+          </button>
+          <button class="btn btn-ghost" id="keepPlaying">Seguir jugando</button>
+        </div>
+      </div>
+    </div>
+
     <div class="modal" id="giftModal" aria-hidden="true">
       <div
-        class="modal-card"
+        class="modal-card gift-modal-card"
         role="dialog"
         aria-modal="true"
         aria-labelledby="giftTitle"
@@ -850,13 +1112,13 @@
                 font-family: &quot;Playfair Display&quot;, serif;
               "
             >
-              Para Agus, en nuestro aniversario
+              Para Marina, con amor
             </h3>
           </div>
           <button class="close-btn" id="closeGift">Cerrar</button>
         </div>
 
-        <div class="card-preview">
+        <div class="card-preview gift-preview">
           <canvas
             id="giftCanvas"
             width="900"
@@ -869,27 +1131,19 @@
           >
         </div>
 
-        <div class="card-preview" style="background: rgba(255, 255, 255, 0.04)">
-          <div class="form-field">
-            <label for="giftPhoto">Foto (subí una imagen)</label>
-            <input type="file" id="giftPhoto" accept="image/*" />
-          </div>
-          <div class="form-field">
-            <label for="giftDate">Fecha</label>
-            <input type="date" id="giftDate" />
-          </div>
-          <div class="form-field">
-            <label for="giftDedication">Dedicatoria</label>
-            <textarea id="giftDedication" rows="5">
-Agus, gracias por este año compartido. Feliz aniversario. — Alessandro</textarea
-            >
-          </div>
+        <div
+          class="card-preview gift-details"
+          style="background: rgba(255, 255, 255, 0.04)"
+        >
+          <div class="gift-static">💗</div>
+          <p class="gift-text">
+            Feliz San Valentín, mi amor. Que cada 14 de febrero nos encuentre
+            eligiéndonos con la misma ternura.
+          </p>
+          <p class="gift-date">Fecha: 14/02/2026</p>
           <div class="form-actions">
             <button class="btn btn-primary" id="downloadGift">
               Descargar tarjeta
-            </button>
-            <button class="btn btn-ghost" id="refreshGift">
-              Actualizar vista previa
             </button>
           </div>
         </div>
@@ -897,7 +1151,7 @@ Agus, gracias por este año compartido. Feliz aniversario. — Alessandro</texta
     </div>
 
     <footer class="footer">
-      Hecho con amor por Alessandro, para Agus · Aniversario 2026
+      Hecho con amor por Andrés, para Marina · San Valentín 2026
       <br />
       <small
         >Regalá:
@@ -924,23 +1178,184 @@ Agus, gracias por este año compartido. Feliz aniversario. — Alessandro</texta
         heartsContainer.appendChild(heart);
       }
 
+      const gameGrid = document.getElementById("gameGrid");
+      const resetGame = document.getElementById("resetGame");
+      const movesCount = document.getElementById("movesCount");
+      const pairsCount = document.getElementById("pairsCount");
+      const gameMessage = document.getElementById("gameMessage");
+      const matchModal = document.getElementById("matchModal");
+      const closeMatch = document.getElementById("closeMatch");
+      const keepPlaying = document.getElementById("keepPlaying");
+      const downloadMatch = document.getElementById("downloadMatch");
+      const matchCanvas = document.getElementById("matchCanvas");
+      const matchCtx = matchCanvas.getContext("2d");
+
+      const symbols = ["💘", "🌹", "✨", "🍫", "🎶", "💌"];
+      const symbolNames = {
+        "💘": "corazon",
+        "🌹": "rosa",
+        "✨": "brillo",
+        "🍫": "chocolate",
+        "🎶": "musica",
+        "💌": "carta",
+      };
+      let tiles = [];
+      let revealed = [];
+      let matched = new Set();
+      let moves = 0;
+      let currentMatchSymbol = null;
+
+      const shuffle = (array) => {
+        const copy = [...array];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      };
+
+      const updateStats = () => {
+        movesCount.textContent = `Movimientos: ${moves}`;
+        pairsCount.textContent = `Parejas: ${matched.size}/6`;
+      };
+
+      const resetBoard = () => {
+        tiles = shuffle([...symbols, ...symbols]);
+        revealed = [];
+        matched = new Set();
+        moves = 0;
+        gameGrid.innerHTML = "";
+        tiles.forEach((symbol, index) => {
+          const tile = document.createElement("button");
+          tile.className = "game-tile";
+          tile.dataset.index = index;
+          tile.textContent = "💗";
+          tile.addEventListener("click", () => revealTile(index));
+          gameGrid.appendChild(tile);
+        });
+        gameMessage.textContent = "Tocá dos tarjetas para empezar.";
+        updateStats();
+      };
+
+      const drawMatchCard = (symbol) => {
+        const width = matchCanvas.width;
+        const height = matchCanvas.height;
+
+        matchCtx.clearRect(0, 0, width, height);
+        const gradient = matchCtx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(0, "#352039");
+        gradient.addColorStop(1, "#1a1324");
+        matchCtx.fillStyle = gradient;
+        matchCtx.fillRect(0, 0, width, height);
+
+        matchCtx.fillStyle = "rgba(255, 255, 255, 0.08)";
+        matchCtx.fillRect(30, 30, width - 60, height - 60);
+
+        matchCtx.fillStyle = "#f5e6ef";
+        matchCtx.font = '28px "Playfair Display"';
+        matchCtx.fillText("Pareja encontrada", 50, 90);
+
+        matchCtx.font = '80px "Plus Jakarta Sans"';
+        matchCtx.fillText(symbol, 70, 200);
+
+        matchCtx.fillStyle = "#f4c88b";
+        matchCtx.font = '20px "Plus Jakarta Sans"';
+        matchCtx.fillText("Andrés + Marina", 50, 250);
+
+        matchCtx.fillStyle = "#f5f4f8";
+        matchCtx.font = '18px "Plus Jakarta Sans"';
+        matchCtx.fillText("Un recuerdo de nuestro juego", 50, 290);
+
+        matchCtx.fillStyle = "rgba(255, 107, 129, 0.7)";
+        matchCtx.font = '16px "Plus Jakarta Sans"';
+        matchCtx.fillText("San Valentín 2026", 50, 330);
+      };
+
+      const openMatchModal = (symbol) => {
+        currentMatchSymbol = symbol;
+        drawMatchCard(symbol);
+        matchModal.classList.add("open");
+        matchModal.setAttribute("aria-hidden", "false");
+      };
+
+      const closeMatchModal = () => {
+        matchModal.classList.remove("open");
+        matchModal.setAttribute("aria-hidden", "true");
+      };
+
+      const revealTile = (index) => {
+        if (revealed.length === 2 || matched.has(index)) return;
+        if (revealed.includes(index)) return;
+        const tile = gameGrid.querySelector(`[data-index="${index}"]`);
+        tile.textContent = tiles[index];
+        tile.classList.add("is-revealed");
+        revealed.push(index);
+
+        if (revealed.length === 2) {
+          moves += 1;
+          updateStats();
+          const [first, second] = revealed;
+          if (tiles[first] === tiles[second]) {
+            matched.add(first);
+            matched.add(second);
+            gameGrid
+              .querySelector(`[data-index="${first}"]`)
+              .classList.add("is-matched");
+            gameGrid
+              .querySelector(`[data-index="${second}"]`)
+              .classList.add("is-matched");
+            revealed = [];
+            updateStats();
+            gameMessage.textContent = "¡Pareja encontrada!";
+            openMatchModal(tiles[first]);
+            if (matched.size === tiles.length) {
+              gameMessage.textContent =
+                "Juego completado: te amo infinito, Marina. 💖";
+            }
+          } else {
+            gameMessage.textContent = "Casi, intentá otra vez.";
+            setTimeout(() => {
+              [first, second].forEach((idx) => {
+                const button = gameGrid.querySelector(`[data-index="${idx}"]`);
+                button.textContent = "💗";
+                button.classList.remove("is-revealed");
+              });
+              revealed = [];
+            }, 800);
+          }
+        }
+      };
+
+      resetGame.addEventListener("click", resetBoard);
+      resetBoard();
+
+      closeMatch.addEventListener("click", closeMatchModal);
+      keepPlaying.addEventListener("click", closeMatchModal);
+      matchModal.addEventListener("click", (event) => {
+        if (event.target === matchModal) {
+          closeMatchModal();
+        }
+      });
+
+      downloadMatch.addEventListener("click", () => {
+        if (!currentMatchSymbol) return;
+        drawMatchCard(currentMatchSymbol);
+        const link = document.createElement("a");
+        const name = symbolNames[currentMatchSymbol] || "pareja";
+        link.download = `pareja-${name}-andres-marina.png`;
+        link.href = matchCanvas.toDataURL("image/png");
+        link.click();
+      });
+
       const giftModal = document.getElementById("giftModal");
       const openGift = document.getElementById("openGift");
       const closeGift = document.getElementById("closeGift");
-      const giftPhoto = document.getElementById("giftPhoto");
-      const giftDate = document.getElementById("giftDate");
-      const giftDedication = document.getElementById("giftDedication");
       const downloadGift = document.getElementById("downloadGift");
-      const refreshGift = document.getElementById("refreshGift");
       const giftCanvas = document.getElementById("giftCanvas");
       const ctx = giftCanvas.getContext("2d");
-      let photoImage = null;
-
-      const formatDate = (value) => {
-        if (!value) return "30/01/2026";
-        const [y, m, d] = value.split("-");
-        return `${d}/${m}/${y}`;
-      };
+      const fixedDate = "14/02/2026";
+      const fixedDedication =
+        "Marina, sos mi lugar favorito. Feliz San Valentín. — Andrés";
 
       const drawCard = () => {
         const width = giftCanvas.width;
@@ -957,44 +1372,23 @@ Agus, gracias por este año compartido. Feliz aniversario. — Alessandro</texta
         ctx.fillStyle = "rgba(255, 255, 255, 0.06)";
         ctx.fillRect(40, 40, width - 80, height - 80);
 
-        if (photoImage) {
-          const imgWidth = 340;
-          const imgHeight = 420;
-          const imgX = 70;
-          const imgY = 60;
-          ctx.save();
-          ctx.beginPath();
-          ctx.roundRect(imgX, imgY, imgWidth, imgHeight, 22);
-          ctx.clip();
-          const ratio = Math.max(
-            imgWidth / photoImage.width,
-            imgHeight / photoImage.height,
-          );
-          const drawWidth = photoImage.width * ratio;
-          const drawHeight = photoImage.height * ratio;
-          const offsetX = imgX + (imgWidth - drawWidth) / 2;
-          const offsetY = imgY + (imgHeight - drawHeight) / 2;
-          ctx.drawImage(photoImage, offsetX, offsetY, drawWidth, drawHeight);
-          ctx.restore();
-        } else {
-          ctx.fillStyle = "rgba(255,255,255,.08)";
-          ctx.fillRect(70, 60, 340, 420);
-          ctx.fillStyle = "#cbbad2";
-          ctx.font = '20px "Plus Jakarta Sans"';
-          ctx.fillText("Subí una foto", 150, 280);
-        }
+        ctx.fillStyle = "rgba(255,255,255,.08)";
+        ctx.fillRect(70, 60, 340, 420);
+        ctx.fillStyle = "#f5e6ef";
+        ctx.font = '64px "Plus Jakarta Sans"';
+        ctx.fillText("💗", 190, 280);
 
         ctx.fillStyle = "#f5e6ef";
         ctx.font = '38px "Playfair Display"';
-        ctx.fillText("Para Agus", 460, 130);
+        ctx.fillText("Para Marina", 460, 130);
 
         ctx.fillStyle = "#f4c88b";
         ctx.font = '20px "Plus Jakarta Sans"';
-        ctx.fillText(`Fecha: ${formatDate(giftDate.value)}`, 460, 170);
+        ctx.fillText(`Fecha: ${fixedDate}`, 460, 170);
 
         ctx.fillStyle = "#f5f4f8";
         ctx.font = '22px "Plus Jakarta Sans"';
-        const dedication = giftDedication.value.trim() || "Siempre juntos.";
+        const dedication = fixedDedication;
         const lines = wrapText(ctx, dedication, 380);
         let textY = 220;
         lines.forEach((line) => {
@@ -1004,7 +1398,7 @@ Agus, gracias por este año compartido. Feliz aniversario. — Alessandro</texta
 
         ctx.fillStyle = "rgba(255, 107, 129, 0.6)";
         ctx.font = '18px "Plus Jakarta Sans"';
-        ctx.fillText("Con amor, Alessandro", 460, 450);
+        ctx.fillText("Con amor, Andrés", 460, 450);
       };
 
       const wrapText = (context, text, maxWidth) => {
@@ -1043,31 +1437,10 @@ Agus, gracias por este año compartido. Feliz aniversario. — Alessandro</texta
         }
       });
 
-      giftPhoto.addEventListener("change", (event) => {
-        const file = event.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = () => {
-          const img = new Image();
-          img.onload = () => {
-            photoImage = img;
-            drawCard();
-          };
-          img.src = reader.result;
-        };
-        reader.readAsDataURL(file);
-      });
-
-      [giftDate, giftDedication].forEach((input) => {
-        input.addEventListener("input", drawCard);
-      });
-
-      refreshGift.addEventListener("click", drawCard);
-
       downloadGift.addEventListener("click", () => {
         drawCard();
         const link = document.createElement("a");
-        link.download = "tarjeta-alessandro-agus.png";
+        link.download = "tarjeta-andres-marina.png";
         link.href = giftCanvas.toDataURL("image/png");
         link.click();
       });
