@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador QR · Amor en Páginas</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #0e0e0e;
+        color: rgba(255, 255, 255, 0.92);
+        padding: 40px 20px;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      h1 {
+        font-family: ui-serif, Georgia, serif;
+        font-size: clamp(28px, 4vw, 42px);
+        margin-bottom: 12px;
+        color: rgba(210, 170, 90, 0.95);
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 16px;
+      }
+
+      .qr-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 28px;
+        margin-bottom: 40px;
+      }
+
+      .qr-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+        padding: 28px;
+        text-align: center;
+      }
+
+      .qr-card h3 {
+        font-family: ui-serif, Georgia, serif;
+        font-size: 22px;
+        margin-bottom: 8px;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .qr-card .subtitle {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.58);
+        margin-bottom: 24px;
+      }
+
+      .qr-container {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .url {
+        font-family: ui-monospace, monospace;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 16px;
+        word-break: break-all;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: rgba(210, 170, 90, 0.15);
+        border: 1px solid rgba(210, 170, 90, 0.35);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.92);
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .btn:hover {
+        background: rgba(210, 170, 90, 0.25);
+        border-color: rgba(210, 170, 90, 0.55);
+      }
+
+      .instructions {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 24px;
+        margin-top: 40px;
+      }
+
+      .instructions h2 {
+        font-size: 20px;
+        margin-bottom: 16px;
+        color: rgba(210, 170, 90, 0.95);
+      }
+
+      .instructions ol {
+        padding-left: 24px;
+        line-height: 1.8;
+      }
+
+      .instructions li {
+        margin-bottom: 8px;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .url-input {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        width: 100%;
+        font-family: monospace;
+        margin-bottom: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Generador de códigos QR</h1>
+        <p>Generá códigos QR para cada página del proyecto</p>
+      </header>
+
+      <div class="instructions" style="margin-bottom: 40px">
+        <h2>Configuración</h2>
+        <p style="margin-bottom: 16px">
+          Ingresá la URL completa que te genera Cloudflare:
+        </p>
+        <input
+          type="text"
+          class="url-input"
+          id="url-completa"
+          placeholder="https://maruylucho.amorenpaginas.com.ar"
+          value="https://maruylucho.amorenpaginas.com.ar"
+          oninput="updateQR()"
+        />
+
+        <p style="margin-bottom: 16px; margin-top: 20px">
+          Nombre para el archivo descargado (opcional):
+        </p>
+        <input
+          type="text"
+          class="url-input"
+          id="file-name"
+          placeholder="QR_MaruyLucho"
+          value="QR_MaruyLucho"
+        />
+      </div>
+
+      <div style="text-align: center; margin-bottom: 40px">
+        <div class="qr-card" style="display: inline-block; max-width: 500px">
+          <h3>Código QR</h3>
+          <div class="qr-container">
+            <canvas id="qr-code"></canvas>
+          </div>
+          <div class="url" id="url-display"></div>
+          <button class="btn" onclick="downloadQR()">Descargar QR</button>
+        </div>
+      </div>
+
+      <div class="instructions">
+        <h2>Instrucciones</h2>
+        <ol>
+          <li>Subí el proyecto a Cloudflare</li>
+          <li>Copiá la URL que te genera Cloudflare</li>
+          <li>Pegala en el campo de arriba</li>
+          <li>El QR se genera automáticamente</li>
+          <li>Descargalo haciendo clic en "Descargar QR"</li>
+          <li>Imprimilo en la tarjeta física</li>
+        </ol>
+
+        <h2 style="margin-top: 28px">Ejemplo</h2>
+        <p style="margin-top: 12px">
+          Si tu URL de Cloudflare es
+          <code style="color: rgba(210, 170, 90, 0.9)"
+            >https://maruylucho.amorenpaginas.com.ar</code
+          >, ingresala tal cual y se generará un QR que al escanearlo llevará
+          directamente a esa página.
+        </p>
+      </div>
+    </div>
+
+    <!-- Biblioteca QRCode.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+    <script>
+      // Generar QR
+      function updateQR() {
+        const fullUrl = document.getElementById("url-completa").value.trim();
+
+        if (!fullUrl) return;
+
+        // Mostrar URL
+        document.getElementById("url-display").textContent = fullUrl;
+
+        // Limpiar canvas anterior
+        const container = document.getElementById("qr-code").parentElement;
+        container.innerHTML = "";
+        const newCanvas = document.createElement("canvas");
+        newCanvas.id = "qr-code";
+        container.appendChild(newCanvas);
+
+        // Generar nuevo QR
+        new QRCode(document.getElementById("qr-code"), {
+          text: fullUrl,
+          width: 256,
+          height: 256,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H,
+        });
+      }
+
+      // Descargar QR como imagen
+      function downloadQR() {
+        const canvas = document.querySelector("#qr-code canvas");
+        if (!canvas) {
+          alert("Error: Primero generá el QR");
+          return;
+        }
+
+        let filename = document.getElementById("file-name").value.trim();
+        if (!filename) {
+          filename = "QR_Code";
+        }
+        if (!filename.endsWith(".png")) {
+          filename += ".png";
+        }
+
+        const link = document.createElement("a");
+        link.download = filename;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      }
+
+      // Generar QR al cargar la página
+      window.addEventListener("load", updateQR);
+    </script>
+  </body>
+</html>

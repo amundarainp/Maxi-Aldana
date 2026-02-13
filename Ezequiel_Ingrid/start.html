@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Para Ingrid · Amor en Páginas</title>
+
+    <style>
+      :root {
+        --bg: #0e0e0e;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --gold: rgba(210, 170, 90, 0.95);
+        --goldSoft: rgba(210, 170, 90, 0.22);
+        --border: rgba(255, 255, 255, 0.16);
+        --borderHover: rgba(255, 255, 255, 0.26);
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        --wmOpacity: 0.055;
+        --wmSize: min(520px, 70vw);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        overflow-x: hidden;
+      }
+
+      .bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            1200px 700px at 50% 10%,
+            rgba(210, 170, 90, 0.08),
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 600px at 20% 80%,
+            rgba(255, 255, 255, 0.04),
+            transparent 60%
+          ),
+          radial-gradient(
+            700px 500px at 85% 75%,
+            rgba(210, 170, 90, 0.05),
+            transparent 60%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.03),
+            transparent 30%,
+            rgba(0, 0, 0, 0.12)
+          );
+        opacity: 0.85;
+      }
+
+      .wm {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        transform: translateY(6px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 140ms;
+      }
+      .wm::before {
+        content: "";
+        width: var(--wmSize);
+        height: var(--wmSize);
+        background-image: url("assets/aep-icon.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        opacity: var(--wmOpacity);
+        filter: blur(0.1px);
+      }
+
+      .overlay {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .card {
+        width: min(680px, 100%);
+        text-align: center;
+        padding: 46px 26px 40px;
+      }
+
+      .title {
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        letter-spacing: 0.2px;
+        font-size: clamp(30px, 4.8vw, 46px);
+        line-height: 1.12;
+        margin: 0 0 14px 0;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 120ms;
+      }
+
+      .subtitle {
+        margin: 0 auto 26px auto;
+        max-width: 46ch;
+        font-size: clamp(14px, 2.2vw, 18px);
+        line-height: 1.55;
+        color: var(--muted);
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 320ms;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 20px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.045)
+        );
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+
+        box-shadow:
+          0 0 0 1px rgba(210, 170, 90, 0.1) inset,
+          0 10px 30px rgba(0, 0, 0, 0.35);
+
+        opacity: 0;
+        transform: translateY(12px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 560ms;
+
+        transition:
+          transform 180ms var(--ease),
+          border-color 180ms var(--ease),
+          box-shadow 180ms var(--ease),
+          opacity 120ms var(--ease);
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: var(--borderHover);
+        box-shadow:
+          0 0 0 1px rgba(210, 170, 90, 0.18) inset,
+          0 12px 34px rgba(0, 0, 0, 0.42);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+        opacity: 0.92;
+      }
+
+      .brand {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 720ms;
+      }
+      .brand img {
+        width: 22px;
+        height: 22px;
+        opacity: 0.65;
+      }
+      .brand span {
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        font-size: 13px;
+        letter-spacing: 2.1px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      .fade-out {
+        animation: out 420ms var(--ease) forwards;
+      }
+
+      @keyframes in {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes out {
+        to {
+          opacity: 0;
+          filter: blur(2px);
+          transform: translateY(0);
+        }
+      }
+
+      .divider {
+        width: 140px;
+        height: 1px;
+        margin: 18px auto 22px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--goldSoft),
+          transparent
+        );
+        opacity: 0.9;
+        border-radius: 99px;
+
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 440ms;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="wm" aria-hidden="true"></div>
+
+    <main class="overlay" id="overlay">
+      <section class="card" aria-label="Inicio Amor en Páginas">
+        <h1 class="title">Ingrid, hay una historia esperándote.</h1>
+
+        <p class="subtitle">
+          Ezequiel creó algo especial para vos.<br />
+          Cuando quieras… podés descubrirla.
+        </p>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <button class="btn" id="openBtn" type="button">
+          Abrir mi historia
+        </button>
+
+        <div class="brand" aria-label="Marca Amor en Páginas">
+          <img src="assets/aep-icon.png" alt="" />
+          <span>Amor en Páginas</span>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const overlay = document.getElementById("overlay");
+      const openBtn = document.getElementById("openBtn");
+
+      openBtn.addEventListener("click", () => {
+        overlay.classList.add("fade-out");
+        window.setTimeout(() => {
+          window.location.href = "index.html";
+        }, 420);
+      });
+    </script>
+  </body>
+</html>

@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Andrés & Marina — San Valentín</title>
+    <title>Ezequiel & Ingrid — San Valentín</title>
     <meta
       name="description"
-      content="Un regalo de San Valentín: historia completa de Andrés y Marina."
+      content="Un regalo de San Valentín: historia completa de Ezequiel e Ingrid."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -817,12 +817,12 @@
     <div class="floating-hearts" aria-hidden="true" id="hearts"></div>
 
     <header>
-      <div class="badge">San Valentín 2026 · Andrés → Marina</div>
+      <div class="badge">San Valentín 2026 · Ezequiel → Ingrid</div>
       <section class="hero">
         <div>
-          <h1>Un San Valentín dedicado a Marina.</h1>
+          <h1>Un San Valentín dedicado a Ingrid.</h1>
           <p>
-            Un regalo de Andrés, hecho con detalles, memorias y promesas. Cada
+            Un regalo de Ezequiel, hecho con detalles, memorias y promesas. Cada
             sección guarda un instante nuestro: lo vivido y todo lo que todavía
             queremos vivir.
           </p>
@@ -851,7 +851,7 @@
         </div>
         <div class="hero-card">
           <div class="mini-story">
-            <h3>Para Marina</h3>
+            <h3>Para Ingrid</h3>
             <p>
               Hoy celebramos el amor que nos une. Gracias por ser mi calma, mi
               risa y mi hogar.
@@ -920,7 +920,7 @@
 
         <div class="love-letter">
           <p>
-            "Marina, gracias por tu ternura, por tu paciencia y por la manera en
+            "Ingrid, gracias por tu ternura, por tu paciencia y por la manera en
             la que me elegís. Este San Valentín me recuerda que lo nuestro es
             amor del lindo: sincero, profundo y lleno de futuro. Te amo con
             calma, con alegría y con ganas de quedarme."
@@ -1112,7 +1112,7 @@
                 font-family: &quot;Playfair Display&quot;, serif;
               "
             >
-              Para Marina, con amor
+              Para Ingrid, con amor
             </h3>
           </div>
           <button class="close-btn" id="closeGift">Cerrar</button>
@@ -1151,7 +1151,7 @@
     </div>
 
     <footer class="footer">
-      Hecho con amor por Andrés, para Marina · San Valentín 2026
+      Hecho con amor por Ezequiel, para Ingrid · San Valentín 2026
       <br />
       <small
         >Regalá:
@@ -1260,7 +1260,7 @@
 
         matchCtx.fillStyle = "#f4c88b";
         matchCtx.font = '20px "Plus Jakarta Sans"';
-        matchCtx.fillText("Andrés + Marina", 50, 250);
+        matchCtx.fillText("Ezequiel + Ingrid", 50, 250);
 
         matchCtx.fillStyle = "#f5f4f8";
         matchCtx.font = '18px "Plus Jakarta Sans"';
@@ -1310,7 +1310,7 @@
             openMatchModal(tiles[first]);
             if (matched.size === tiles.length) {
               gameMessage.textContent =
-                "Juego completado: te amo infinito, Marina. 💖";
+                "Juego completado: te amo infinito, Ingrid. 💖";
             }
           } else {
             gameMessage.textContent = "Casi, intentá otra vez.";
@@ -1342,7 +1342,7 @@
         drawMatchCard(currentMatchSymbol);
         const link = document.createElement("a");
         const name = symbolNames[currentMatchSymbol] || "pareja";
-        link.download = `pareja-${name}-andres-marina.png`;
+        link.download = `pareja-${name}-ezequiel-ingrid.png`;
         link.href = matchCanvas.toDataURL("image/png");
         link.click();
       });
@@ -1355,7 +1355,7 @@
       const ctx = giftCanvas.getContext("2d");
       const fixedDate = "14/02/2026";
       const fixedDedication =
-        "Marina, sos mi lugar favorito. Feliz San Valentín. — Andrés";
+        "Ingrid, sos mi lugar favorito. Feliz San Valentín. — Ezequiel";
 
       const drawCard = () => {
         const width = giftCanvas.width;
@@ -1380,7 +1380,7 @@
 
         ctx.fillStyle = "#f5e6ef";
         ctx.font = '38px "Playfair Display"';
-        ctx.fillText("Para Marina", 460, 130);
+        ctx.fillText("Para Ingrid", 460, 130);
 
         ctx.fillStyle = "#f4c88b";
         ctx.font = '20px "Plus Jakarta Sans"';
@@ -1398,7 +1398,7 @@
 
         ctx.fillStyle = "rgba(255, 107, 129, 0.6)";
         ctx.font = '18px "Plus Jakarta Sans"';
-        ctx.fillText("Con amor, Andrés", 460, 450);
+        ctx.fillText("Con amor, Ezequiel", 460, 450);
       };
 
       const wrapText = (context, text, maxWidth) => {
@@ -1440,7 +1440,7 @@
       downloadGift.addEventListener("click", () => {
         drawCard();
         const link = document.createElement("a");
-        link.download = "tarjeta-andres-marina.png";
+        link.download = "tarjeta-ezequiel-ingrid.png";
         link.href = giftCanvas.toDataURL("image/png");
         link.click();
       });

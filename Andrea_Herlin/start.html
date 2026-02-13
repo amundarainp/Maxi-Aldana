@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Para Herlin · 17 Años de Amor</title>
+
+    <style>
+      :root {
+        --bg: #0e0e0e;
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --gold: rgba(255, 107, 129, 0.95);
+        --goldSoft: rgba(255, 107, 129, 0.22);
+        --pink: rgba(255, 20, 147, 0.85);
+        --border: rgba(255, 255, 255, 0.16);
+        --borderHover: rgba(255, 255, 255, 0.26);
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        --wmOpacity: 0.055;
+        --wmSize: min(520px, 70vw);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        overflow-x: hidden;
+      }
+
+      .bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            1200px 700px at 50% 10%,
+            rgba(255, 20, 147, 0.12),
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 600px at 20% 80%,
+            rgba(255, 107, 129, 0.08),
+            transparent 60%
+          ),
+          radial-gradient(
+            700px 500px at 85% 75%,
+            rgba(255, 192, 203, 0.06),
+            transparent 60%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.03),
+            transparent 30%,
+            rgba(0, 0, 0, 0.12)
+          );
+        opacity: 0.85;
+      }
+
+      .wm {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        transform: translateY(6px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 140ms;
+      }
+      .wm::before {
+        content: "";
+        width: var(--wmSize);
+        height: var(--wmSize);
+        background-image: url("assets/aep-icon.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        opacity: var(--wmOpacity);
+        filter: blur(0.1px);
+      }
+
+      /* Partículas flotantes de corazones */
+      .particles {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        font-size: 20px;
+        opacity: 0;
+        animation: float-particle linear infinite;
+      }
+
+      @keyframes float-particle {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translateY(-20vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .overlay {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .card {
+        width: min(720px, 100%);
+        text-align: center;
+        padding: 46px 26px 40px;
+      }
+
+      .anniversary-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 20, 147, 0.3),
+          rgba(255, 107, 129, 0.3)
+        );
+        border: 2px solid rgba(255, 107, 129, 0.4);
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 24px rgba(255, 20, 147, 0.3);
+        animation: pulse-glow 2s ease-in-out infinite;
+        opacity: 0;
+        transform: translateY(10px);
+        animation:
+          in 520ms var(--ease) forwards,
+          pulse-glow 2s ease-in-out infinite;
+        animation-delay: 80ms, 600ms;
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 8px 24px rgba(255, 20, 147, 0.3);
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          box-shadow: 0 12px 32px rgba(255, 20, 147, 0.5);
+          transform: translateY(-2px) scale(1.03);
+        }
+      }
+
+      .title {
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        letter-spacing: 0.2px;
+        font-size: clamp(32px, 5.2vw, 52px);
+        line-height: 1.12;
+        margin: 0 0 14px 0;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 120ms;
+        background: linear-gradient(135deg, #fff 0%, #ffc0cb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .subtitle {
+        margin: 0 auto 26px auto;
+        max-width: 46ch;
+        font-size: clamp(15px, 2.4vw, 19px);
+        line-height: 1.6;
+        color: var(--muted);
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 320ms;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px 28px;
+        border-radius: 999px;
+        border: 2px solid rgba(255, 107, 129, 0.5);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 20, 147, 0.25),
+          rgba(255, 107, 129, 0.2)
+        );
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+
+        box-shadow:
+          0 0 0 1px rgba(255, 107, 129, 0.2) inset,
+          0 12px 36px rgba(255, 20, 147, 0.4);
+
+        opacity: 0;
+        transform: translateY(12px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 560ms;
+
+        transition:
+          transform 180ms var(--ease),
+          border-color 180ms var(--ease),
+          box-shadow 180ms var(--ease),
+          background 180ms var(--ease),
+          opacity 120ms var(--ease);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px) scale(1.02);
+        border-color: rgba(255, 107, 129, 0.7);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 20, 147, 0.35),
+          rgba(255, 107, 129, 0.3)
+        );
+        box-shadow:
+          0 0 0 1px rgba(255, 107, 129, 0.3) inset,
+          0 16px 42px rgba(255, 20, 147, 0.5);
+      }
+
+      .btn:active {
+        transform: translateY(1px) scale(0.98);
+        opacity: 0.92;
+      }
+
+      .brand {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 720ms;
+      }
+      .brand img {
+        width: 22px;
+        height: 22px;
+        opacity: 0.65;
+      }
+      .brand span {
+        font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+        font-size: 13px;
+        letter-spacing: 2.1px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      .fade-out {
+        animation: out 420ms var(--ease) forwards;
+      }
+
+      @keyframes in {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes out {
+        to {
+          opacity: 0;
+          filter: blur(2px);
+          transform: translateY(0);
+        }
+      }
+
+      .divider {
+        width: 140px;
+        height: 1px;
+        margin: 18px auto 22px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 107, 129, 0.6),
+          transparent
+        );
+        opacity: 0.9;
+        border-radius: 99px;
+
+        opacity: 0;
+        transform: translateY(10px);
+        animation: in 520ms var(--ease) forwards;
+        animation-delay: 440ms;
+      }
+
+      .heart-symbol {
+        font-size: 24px;
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        10%,
+        30% {
+          transform: scale(1.1);
+        }
+        20%,
+        40% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="wm" aria-hidden="true"></div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+
+    <main class="overlay" id="overlay">
+      <section class="card" aria-label="Inicio Amor en Páginas">
+        <div class="anniversary-badge">
+          <span class="heart-symbol">💖</span>
+          17 Años de Amor
+          <span class="heart-symbol">💖</span>
+        </div>
+
+        <h1 class="title">Herlin, hay una historia esperándote.</h1>
+
+        <p class="subtitle">
+          Andrea creó algo especial para vos, celebrando 17 años juntos y este
+          San Valentín.<br />
+          Un regalo hecho con amor infinito... cuando quieras, podés
+          descubrirlo.
+        </p>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <button class="btn" id="openBtn" type="button">
+          <span class="heart-symbol">💝</span>
+          Abrir mi historia de amor
+        </button>
+
+        <div class="brand" aria-label="Marca Amor en Páginas">
+          <img src="assets/aep-icon.png" alt="" />
+          <span>Amor en Páginas</span>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Crear partículas flotantes
+      const particles = document.getElementById("particles");
+      const particleSymbols = ["💕", "💖", "💗", "💓", "💝", "🌹", "✨", "⭐"];
+
+      function createParticle() {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.textContent =
+          particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.animationDuration = 8 + Math.random() * 10 + "s";
+        particle.style.animationDelay = Math.random() * 5 + "s";
+        particles.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 20000);
+      }
+
+      // Crear partículas iniciales
+      for (let i = 0; i < 15; i++) {
+        setTimeout(() => createParticle(), i * 300);
+      }
+
+      // Seguir creando partículas periódicamente
+      setInterval(createParticle, 2000);
+
+      // Navegación
+      const overlay = document.getElementById("overlay");
+      const openBtn = document.getElementById("openBtn");
+
+      openBtn.addEventListener("click", () => {
+        overlay.classList.add("fade-out");
+        window.setTimeout(() => {
+          window.location.href = "index.html";
+        }, 420);
+      });
+    </script>
+  </body>
+</html>

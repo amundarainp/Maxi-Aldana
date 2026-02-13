@@ -1,0 +1,2002 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claudia & Daniel — Nuestro Amor • San Valentín 2026</title>
+    <meta
+      name="description"
+      content="Celebrando el día del amor - Un regalo especial de San Valentín creado con el corazón."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #ff0844;
+        --primary-light: #ff4d7d;
+        --secondary: #ffbe0b;
+        --dark: #0a0a0f;
+        --dark-2: #1a1a24;
+        --glass: rgba(255, 255, 255, 0.08);
+        --glass-2: rgba(255, 255, 255, 0.12);
+        --text: #f8f9fa;
+        --muted: #b8b9c0;
+        --shadow: 0 25px 70px rgba(255, 8, 68, 0.25);
+        --glow: 0 0 40px rgba(255, 8, 68, 0.4);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0a0a0f 0%,
+          #1a0f1f 50%,
+          #0f0a1a 100%
+        );
+        color: var(--text);
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* ===== FONDO ANIMADO ===== */
+      .animated-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .gradient-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        animation: float 20s infinite ease-in-out;
+      }
+
+      .orb-1 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+        top: -200px;
+        left: -200px;
+        animation-delay: 0s;
+      }
+
+      .orb-2 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          var(--secondary) 0%,
+          transparent 70%
+        );
+        bottom: -150px;
+        right: -150px;
+        animation-delay: 5s;
+      }
+
+      .orb-3 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, #ff1493 0%, transparent 70%);
+        top: 50%;
+        right: -100px;
+        animation-delay: 10s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        25% {
+          transform: translate(50px, 50px) scale(1.1);
+        }
+        50% {
+          transform: translate(-30px, 80px) scale(0.9);
+        }
+        75% {
+          transform: translate(40px, -50px) scale(1.05);
+        }
+      }
+
+      /* Partículas flotantes */
+      .particles {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .particle {
+        position: absolute;
+        font-size: 20px;
+        opacity: 0;
+        animation: rise linear infinite;
+      }
+
+      @keyframes rise {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.3;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ===== PANTALLA DE BIENVENIDA ===== */
+      #welcome-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0a0a0f 0%, #1a0f1f 100%);
+        transition:
+          opacity 1s ease,
+          visibility 1s ease;
+      }
+
+      #welcome-screen.hide {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .welcome-content {
+        text-align: center;
+        padding: 40px;
+        max-width: 800px;
+      }
+
+      .welcome-heart {
+        font-size: 100px;
+        animation:
+          heartBeat 1.5s infinite,
+          welcome-glow 2s infinite;
+        display: inline-block;
+        margin-bottom: 30px;
+      }
+
+      @keyframes heartBeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        10%,
+        30% {
+          transform: scale(1.15);
+        }
+        20%,
+        40% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes welcome-glow {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 20px rgba(255, 8, 68, 0.8));
+        }
+        50% {
+          filter: drop-shadow(0 0 40px rgba(255, 8, 68, 1));
+        }
+      }
+
+      .welcome-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(42px, 8vw, 80px);
+        font-weight: 900;
+        background: linear-gradient(
+          135deg,
+          #fff 0%,
+          var(--primary-light) 50%,
+          var(--secondary) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        animation: titleFade 1s ease forwards;
+        opacity: 0;
+      }
+
+      @keyframes titleFade {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .welcome-subtitle {
+        font-size: clamp(18px, 3vw, 24px);
+        color: var(--muted);
+        margin-bottom: 15px;
+        animation: titleFade 1s ease forwards 0.3s;
+        opacity: 0;
+      }
+
+      .welcome-date {
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(24px, 4vw, 36px);
+        color: var(--secondary);
+        margin-bottom: 40px;
+        animation: titleFade 1s ease forwards 0.6s;
+        opacity: 0;
+      }
+
+      .enter-btn {
+        padding: 20px 50px;
+        font-size: 20px;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%
+        );
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: var(--shadow), var(--glow);
+        transition: all 0.3s ease;
+        animation: titleFade 1s ease forwards 0.9s;
+        opacity: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .enter-btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.6s,
+          height 0.6s;
+      }
+
+      .enter-btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .enter-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow:
+          0 30px 80px rgba(255, 8, 68, 0.4),
+          0 0 60px rgba(255, 8, 68, 0.6);
+      }
+
+      .enter-btn span {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        padding: 100px 6vw 60px;
+        text-align: center;
+        position: relative;
+      }
+
+      .anniversary-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 24px;
+        background: var(--glass);
+        border: 2px solid rgba(255, 8, 68, 0.3);
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+        animation: badgePulse 2s infinite;
+        margin-bottom: 30px;
+      }
+
+      @keyframes badgePulse {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: var(--shadow);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: var(--shadow), var(--glow);
+        }
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(48px, 8vw, 96px);
+        font-weight: 900;
+        background: linear-gradient(
+          135deg,
+          #fff 0%,
+          var(--primary-light) 50%,
+          var(--secondary) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        line-height: 1.1;
+      }
+
+      .subtitle {
+        font-size: clamp(18px, 3vw, 28px);
+        color: var(--muted);
+        max-width: 700px;
+        margin: 0 auto 50px;
+        line-height: 1.6;
+      }
+
+      /* ===== CONTADOR EN TIEMPO REAL ===== */
+      .live-counter {
+        max-width: 1000px;
+        margin: 60px auto;
+        padding: 50px;
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        backdrop-filter: blur(20px);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .live-counter::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 8, 68, 0.1) 0%,
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+
+      .counter-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 5vw, 42px);
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .counter-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .counter-item {
+        text-align: center;
+        padding: 30px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .counter-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 8, 68, 0.15);
+        box-shadow: 0 10px 30px rgba(255, 8, 68, 0.3);
+      }
+
+      .counter-number {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(36px, 6vw, 56px);
+        font-weight: 900;
+        background: linear-gradient(
+          135deg,
+          var(--secondary) 0%,
+          var(--primary-light) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .counter-label {
+        font-size: 14px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 10px;
+      }
+
+      /* ===== SECCIÓN DE CONTENIDO ===== */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 80px 6vw;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(36px, 6vw, 56px);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: var(--muted);
+        margin-bottom: 60px;
+      }
+
+      /* ===== RAZONES POR LAS QUE TE AMO ===== */
+      .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+
+      .reason-card {
+        padding: 40px;
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .reason-card::before {
+        content: "";
+        position: absolute;
+        inset: -100%;
+        background: linear-gradient(
+          135deg,
+          transparent,
+          rgba(255, 8, 68, 0.2),
+          transparent
+        );
+        transform: rotate(45deg);
+        transition: all 0.6s;
+      }
+
+      .reason-card:hover::before {
+        inset: -50%;
+      }
+
+      .reason-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 60px rgba(255, 8, 68, 0.4);
+        border-color: rgba(255, 8, 68, 0.5);
+      }
+
+      .reason-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        display: block;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .reason-title {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--primary-light);
+      }
+
+      .reason-text {
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      /* ===== TIMELINE INTERACTIVA ===== */
+      .timeline {
+        position: relative;
+        padding: 60px 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(
+          180deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 1fr 80px 1fr;
+        gap: 40px;
+        margin-bottom: 80px;
+        align-items: center;
+      }
+
+      .timeline-content {
+        padding: 35px;
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+        position: relative;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        grid-column: 3;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        grid-column: 1;
+        text-align: right;
+      }
+
+      .timeline-content:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 60px rgba(255, 8, 68, 0.3);
+        border-color: rgba(255, 8, 68, 0.5);
+      }
+
+      .timeline-icon {
+        grid-column: 2;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        box-shadow: var(--shadow), var(--glow);
+        z-index: 1;
+        border: 4px solid var(--dark);
+        animation: iconPulse 2s infinite;
+      }
+
+      @keyframes iconPulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .timeline-content h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 26px;
+        margin-bottom: 15px;
+        color: var(--secondary);
+      }
+
+      .timeline-content p {
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      /* ===== JUEGO DE MEMORIA MEJORADO ===== */
+      .game-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 50px;
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        backdrop-filter: blur(20px);
+        box-shadow: var(--shadow);
+      }
+
+      .game-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .game-stats {
+        display: flex;
+        gap: 30px;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--secondary);
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .game-card {
+        aspect-ratio: 1;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 8, 68, 0.1),
+          rgba(255, 190, 11, 0.1)
+        );
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 42px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        position: relative;
+      }
+
+      .game-card:hover:not(.matched):not(.flipped) {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+        box-shadow: 0 10px 30px rgba(255, 8, 68, 0.4);
+      }
+
+      .game-card.flipped {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-color: var(--primary-light);
+      }
+
+      .game-card.matched {
+        background: linear-gradient(135deg, var(--secondary), #ffd60a);
+        border-color: var(--secondary);
+        animation: matchFound 0.6s ease;
+      }
+
+      @keyframes matchFound {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15) rotate(5deg);
+        }
+      }
+
+      .game-message {
+        text-align: center;
+        font-size: 20px;
+        min-height: 30px;
+        color: var(--primary-light);
+        font-weight: 600;
+      }
+
+      .reset-btn {
+        display: block;
+        margin: 30px auto 0;
+        padding: 15px 40px;
+        background: transparent;
+        color: var(--text);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .reset-btn:hover {
+        background: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(255, 8, 68, 0.4);
+      }
+
+      /* ===== TARJETA DESCARGABLE ===== */
+      .gift-section {
+        text-align: center;
+        padding: 60px;
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+        backdrop-filter: blur(20px);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gift-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 8, 68, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .gift-icon {
+        font-size: 80px;
+        margin-bottom: 30px;
+        display: inline-block;
+        animation: giftFloat 3s ease-in-out infinite;
+        filter: drop-shadow(0 10px 30px rgba(255, 8, 68, 0.5));
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes giftFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      .gift-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 5vw, 42px);
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .gift-description {
+        color: var(--muted);
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .gift-btn {
+        padding: 20px 50px;
+        font-size: 18px;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%
+        );
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: var(--shadow), var(--glow);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      .gift-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow:
+          0 30px 80px rgba(255, 8, 68, 0.5),
+          0 0 80px rgba(255, 8, 68, 0.8);
+      }
+
+      /* ===== MODAL ===== */
+      .modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: var(--dark-2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+        padding: 50px;
+        max-width: 1000px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .modal-close:hover {
+        background: var(--primary);
+        transform: rotate(90deg);
+      }
+
+      .certificate-canvas {
+        width: 100%;
+        border-radius: 20px;
+        margin: 30px 0;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .download-btn {
+        display: block;
+        margin: 0 auto;
+        padding: 18px 45px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .download-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 60px rgba(255, 8, 68, 0.5);
+      }
+
+      /* ===== MODAL DE PAREJA ENCONTRADA ===== */
+      .match-modal-content {
+        background: var(--dark-2);
+        border: 2px solid var(--primary);
+        border-radius: 30px;
+        padding: 40px;
+        max-width: 700px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 30px 100px rgba(255, 8, 68, 0.6);
+        animation: modalZoom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes modalZoom {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .match-modal-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .match-modal-icon {
+        font-size: 80px;
+        animation: matchIconBounce 1s infinite;
+        display: inline-block;
+      }
+
+      @keyframes matchIconBounce {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2) rotate(10deg);
+        }
+      }
+
+      .match-modal-title {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        margin: 15px 0 10px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .match-modal-subtitle {
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .match-card-canvas {
+        width: 100%;
+        border-radius: 20px;
+        margin: 20px 0;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .match-modal-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .match-modal-btn {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-download-match {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        color: white;
+        box-shadow: 0 10px 30px rgba(255, 8, 68, 0.4);
+      }
+
+      .btn-download-match:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 8, 68, 0.6);
+      }
+
+      .btn-continue {
+        background: transparent;
+        color: var(--text);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-continue:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* ===== MARCA AMOR EN PÁGINAS ===== */
+      .aep-brand {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        animation: brandFloat 3s ease-in-out infinite;
+      }
+
+      @keyframes brandFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .aep-brand a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px 25px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 8, 68, 0.9),
+          rgba(255, 77, 125, 0.9)
+        );
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+        box-shadow: 0 10px 40px rgba(255, 8, 68, 0.6);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .aep-brand a:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 50px rgba(255, 8, 68, 0.8);
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+      }
+
+      .aep-icon {
+        font-size: 20px;
+        animation: iconSpin 3s linear infinite;
+      }
+
+      @keyframes iconSpin {
+        0%,
+        90% {
+          transform: rotate(0deg);
+        }
+        95% {
+          transform: rotate(15deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      .aep-footer {
+        text-align: center;
+        padding: 60px 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 80px;
+      }
+
+      .aep-footer a {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        padding: 10px 20px;
+        border-radius: 25px;
+      }
+
+      .aep-footer a:hover {
+        color: var(--primary-light);
+        background: rgba(255, 8, 68, 0.1);
+      }
+
+      /* Confetti */
+      .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: var(--primary);
+        position: absolute;
+        animation: confetti-fall 3s linear forwards;
+      }
+
+      @keyframes confetti-fall {
+        to {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .timeline::before {
+          left: 40px;
+        }
+
+        .timeline-item {
+          grid-template-columns: 80px 1fr;
+          gap: 20px;
+        }
+
+        .timeline-icon {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .timeline-content {
+          grid-column: 2 !important;
+          grid-row: 1;
+          text-align: left !important;
+        }
+
+        .game-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .aep-brand {
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .aep-brand a {
+          padding: 12px 20px;
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Fondo animado -->
+    <div class="animated-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Partículas flotantes -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen">
+      <div class="welcome-content">
+        <div class="welcome-heart">💖</div>
+        <h1 class="welcome-title">Daniel, esto es para vos</h1>
+        <p class="welcome-subtitle">Claudia preparó algo muy especial...</p>
+        <p class="welcome-date">Feliz San Valentín</p>
+        <button class="enter-btn" id="enterBtn">
+          <span>✨ Descubrir mi regalo ✨</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <header>
+      <div class="anniversary-badge">
+        <span>💕</span>
+        SAN VALENTÍN 2026
+        <span>💕</span>
+      </div>
+      <h1>Claudia & Daniel</h1>
+      <p class="subtitle">
+        En el día del amor, celebro todo lo que significás para mí. Cada momento a tu lado
+        es un regalo, cada sonrisa tuya ilumina mi mundo. Este San Valentín es especial
+        porque lo celebro con vos.
+      </p>
+    </header>
+
+    <!-- Contador en tiempo real -->
+    <div class="container">
+      <div class="live-counter">
+        <h2 class="counter-title">Nuestro Tiempo Juntos ⏰</h2>
+        <div class="counter-grid">
+          <div class="counter-item">
+            <div class="counter-number" id="years">0</div>
+            <div class="counter-label">Años</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number" id="months">0</div>
+            <div class="counter-label">Meses</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number" id="days">0</div>
+            <div class="counter-label">Días</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number" id="hours">0</div>
+            <div class="counter-label">Horas</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number" id="minutes">0</div>
+            <div class="counter-label">Minutos</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number">∞</div>
+            <div class="counter-label">Amor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Razones por las que te amo -->
+    <div class="container">
+      <h2 class="section-title">Por qué te amo 💝</h2>
+      <p class="section-subtitle">
+        En este San Valentín, quiero recordarte todas las razones por las que mi corazón late por vos
+      </p>
+
+      <div class="reasons-grid">
+        <div class="reason-card">
+          <span class="reason-icon">😊</span>
+          <h3 class="reason-title">Tu Sonrisa</h3>
+          <p class="reason-text">
+            Tu sonrisa es el sol que ilumina mis días. Cada vez que la veo, el mundo se vuelve
+            un lugar más hermoso. Es mi lugar favorito, mi refugio en los días difíciles.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-icon">💪</span>
+          <h3 class="reason-title">Tu Fortaleza</h3>
+          <p class="reason-text">
+            Admiro tu fuerza, tu manera de enfrentar cada desafío con valentía. Sos mi
+            inspiración para ser mejor cada día. Juntos somos invencibles.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-icon">🌹</span>
+          <h3 class="reason-title">Tu Romanticismo</h3>
+          <p class="reason-text">
+            Cada gesto tuyo, cada detalle, me enamora más. Sabés cómo hacer que cada día
+            parezca San Valentín. Sos el amor que siempre soñé encontrar.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-icon">🤗</span>
+          <h3 class="reason-title">Tu Ternura</h3>
+          <p class="reason-text">
+            La forma en que me cuidas, me mimas y me haces sentir la persona más especial
+            del mundo es incomparable. Tu amor es el regalo más grande de mi vida.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-icon">🌟</span>
+          <h3 class="reason-title">Tu Esencia</h3>
+          <p class="reason-text">
+            Me enamoré de quien sos, de tu autenticidad, de tu forma única de ver el mundo.
+            Cada detalle tuyo es especial, cada momento contigo es mágico.
+          </p>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-icon">❤️</span>
+          <h3 class="reason-title">Nuestro Amor</h3>
+          <p class="reason-text">
+            Lo que tenemos es único, especial, eterno. Este San Valentín celebro nuestro amor,
+            que crece más fuerte cada día. Sos mi para siempre, mi todo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline de momentos -->
+    <div class="container">
+      <h2 class="section-title">Momentos del Corazón 📖</h2>
+      <p class="section-subtitle">Los instantes que hicieron nuestro amor inolvidable</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Cuando nos Conocimos</h3>
+            <p>
+              El día que te vi por primera vez, algo cambió en mi corazón. Desde ese momento
+              supe que eras especial, que había algo mágico en vos. El destino nos juntó.
+            </p>
+          </div>
+          <div class="timeline-icon">✨</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Nuestra Primera Cita</h3>
+            <p>
+              Los nervios, las risas, las miradas cómplices. Ese día confirmé que quería
+              conocerte más, descubrir cada rincón de tu alma. Fue el inicio de algo hermoso.
+            </p>
+          </div>
+          <div class="timeline-icon">💑</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>El Primer "Te Amo"</h3>
+            <p>
+              Cuando esas palabras salieron de mi corazón, supe que eran para siempre.
+              Te amo con cada fibra de mi ser, con cada latido, con cada respiro.
+            </p>
+          </div>
+          <div class="timeline-icon">💘</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Nuestros San Valentines</h3>
+            <p>
+              Cada 14 de febrero es especial porque lo celebro con vos. Cada año nos une más,
+              cada momento juntos es un tesoro que guardo en mi corazón para siempre.
+            </p>
+          </div>
+          <div class="timeline-icon">🌹</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Hoy y Todos los Días</h3>
+            <p>
+              Este San Valentín celebro nuestro amor infinito. Cada día a tu lado es una
+              celebración del amor. Sos mi presente y mi futuro, mi todo.
+            </p>
+          </div>
+          <div class="timeline-icon">💖</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Juego de memoria -->
+    <div class="container">
+      <h2 class="section-title">Juego del Amor 🎮</h2>
+      <p class="section-subtitle">
+        Encuentra las parejas y descubre sorpresas especiales de San Valentín
+      </p>
+
+      <div class="game-container">
+        <div class="game-header">
+          <div class="game-stats">
+            <div class="stat-item">
+              <div class="stat-number" id="movesCount">0</div>
+              <div class="stat-label">Movimientos</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" id="pairsCount">0/8</div>
+              <div class="stat-label">Parejas</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-grid" id="gameGrid"></div>
+
+        <div class="game-message" id="gameMessage">
+          Haz clic en dos cartas para comenzar
+        </div>
+
+        <button class="reset-btn" id="resetBtn">🔄 Reiniciar Juego</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta descargable -->
+    <div class="container">
+      <div class="gift-section">
+        <div class="gift-icon">💌</div>
+        <h2 class="gift-title">Tu Certificado de San Valentín</h2>
+        <p class="gift-description">
+          Preparé un certificado especial para vos en este día del amor. Podés descargarlo
+          y guardarlo para siempre como símbolo de nuestro amor eterno e inquebrantable.
+        </p>
+        <button class="gift-btn" id="openCertificate">
+          💝 Ver y Descargar Certificado
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+      <div class="aep-footer">
+        <a
+          href="https://wa.me/5491178262848?text=Hola!%20Vi%20tu%20trabajo%20en%20Amor%20en%20P%C3%A1ginas%20y%20me%20encant%C3%B3.%20Me%20gustar%C3%ADa%20crear%20algo%20especial%20%F0%9F%92%96"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+            ></path>
+          </svg>
+          <span>Creado con Amor en Páginas</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Marca flotante -->
+    <div class="aep-brand">
+      <a
+        href="https://wa.me/5491178262848?text=Hola!%20Vi%20tu%20trabajo%20en%20Amor%20en%20P%C3%A1ginas%20y%20me%20encant%C3%B3.%20Me%20gustar%C3%ADa%20crear%20algo%20especial%20%F0%9F%92%96"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="aep-icon">💌</span>
+        <span>Amor en Páginas</span>
+      </a>
+    </div>
+
+    <!-- Modal de pareja encontrada -->
+    <div class="modal" id="matchModal">
+      <div class="match-modal-content">
+        <button class="modal-close" id="closeMatchModal">×</button>
+        <div class="match-modal-header">
+          <div class="match-modal-icon" id="matchIcon">💖</div>
+          <h2 class="match-modal-title">¡Pareja Encontrada!</h2>
+          <p class="match-modal-subtitle">Una tarjeta especial de San Valentín para vos</p>
+        </div>
+        <canvas
+          id="matchCanvas"
+          class="match-card-canvas"
+          width="800"
+          height="600"
+        ></canvas>
+        <div class="match-modal-actions">
+          <button
+            class="match-modal-btn btn-download-match"
+            id="downloadMatchBtn"
+          >
+            💾 Descargar Tarjeta
+          </button>
+          <button class="match-modal-btn btn-continue" id="continueBtn">
+            ▶️ Continuar Jugando
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal del certificado -->
+    <div class="modal" id="certificateModal">
+      <div class="modal-content">
+        <button class="modal-close" id="closeModal">×</button>
+        <h2
+          style="
+            text-align: center;
+            font-family: &quot;Playfair Display&quot;, serif;
+            margin-bottom: 20px;
+          "
+        >
+          Certificado de San Valentín 💖
+        </h2>
+        <canvas
+          id="certificateCanvas"
+          class="certificate-canvas"
+          width="1200"
+          height="800"
+        ></canvas>
+        <button class="download-btn" id="downloadBtn">
+          ⬇️ Descargar Certificado
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // ===== PANTALLA DE BIENVENIDA =====
+      const welcomeScreen = document.getElementById("welcome-screen");
+      const enterBtn = document.getElementById("enterBtn");
+
+      enterBtn.addEventListener("click", () => {
+        welcomeScreen.classList.add("hide");
+        createConfetti();
+      });
+
+      // ===== PARTÍCULAS FLOTANTES =====
+      const particles = document.getElementById("particles");
+      const particleSymbols = [
+        "💕",
+        "💖",
+        "💗",
+        "💝",
+        "💘",
+        "❤️",
+        "💓",
+        "💞",
+        "🌹",
+        "✨",
+        "⭐",
+        "💫",
+      ];
+
+      function createParticle() {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.textContent =
+          particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.animationDuration = 10 + Math.random() * 15 + "s";
+        particle.style.animationDelay = Math.random() * 5 + "s";
+        particles.appendChild(particle);
+
+        setTimeout(() => particle.remove(), 25000);
+      }
+
+      // Crear partículas continuamente
+      setInterval(createParticle, 1500);
+      for (let i = 0; i < 20; i++) {
+        setTimeout(createParticle, i * 200);
+      }
+
+      // ===== CONTADOR EN TIEMPO REAL =====
+      const startDate = new Date("2024-02-14T00:00:00"); // Ajusta esta fecha
+
+      function updateCounter() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+        const months = Math.floor(
+          (diff % (1000 * 60 * 60 * 24 * 365.25)) /
+            (1000 * 60 * 60 * 24 * 30.44),
+        );
+        const days = Math.floor(
+          (diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24),
+        );
+        const hours = Math.floor(
+          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("years").textContent = years;
+        document.getElementById("months").textContent = months;
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+      }
+
+      updateCounter();
+      setInterval(updateCounter, 60000); // Actualiza cada minuto
+
+      // ===== JUEGO DE MEMORIA =====
+      const gameGrid = document.getElementById("gameGrid");
+      const movesCount = document.getElementById("movesCount");
+      const pairsCount = document.getElementById("pairsCount");
+      const gameMessage = document.getElementById("gameMessage");
+      const resetBtn = document.getElementById("resetBtn");
+
+      const symbols = ["💕", "💖", "💗", "💝", "💘", "❤️", "💓", "💞"];
+      const symbolNames = {
+        "💕": "Dos Corazones",
+        "💖": "Corazón Brillante",
+        "💗": "Corazón Creciente",
+        "💝": "Corazón con Lazo",
+        "💘": "Corazón con Flecha",
+        "❤️": "Corazón Rojo",
+        "💓": "Corazón Latiendo",
+        "💞": "Corazones Giratorios",
+      };
+      let cards = [];
+      let flippedCards = [];
+      let matchedPairs = 0;
+      let moves = 0;
+      let canFlip = true;
+      let currentMatchSymbol = null;
+
+      function shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+      }
+
+      function initGame() {
+        cards = shuffleArray([...symbols, ...symbols]);
+        gameGrid.innerHTML = "";
+        flippedCards = [];
+        matchedPairs = 0;
+        moves = 0;
+        canFlip = true;
+        movesCount.textContent = "0";
+        pairsCount.textContent = "0/8";
+        gameMessage.textContent = "Haz clic en dos cartas para comenzar";
+
+        cards.forEach((symbol, index) => {
+          const card = document.createElement("div");
+          card.className = "game-card";
+          card.dataset.symbol = symbol;
+          card.dataset.index = index;
+          card.textContent = "💗";
+          card.addEventListener("click", () => flipCard(card));
+          gameGrid.appendChild(card);
+        });
+      }
+
+      function flipCard(card) {
+        if (
+          !canFlip ||
+          card.classList.contains("flipped") ||
+          card.classList.contains("matched")
+        ) {
+          return;
+        }
+
+        card.classList.add("flipped");
+        card.textContent = card.dataset.symbol;
+        flippedCards.push(card);
+
+        if (flippedCards.length === 2) {
+          moves++;
+          movesCount.textContent = moves;
+          checkMatch();
+        }
+      }
+
+      function checkMatch() {
+        canFlip = false;
+        const [card1, card2] = flippedCards;
+
+        if (card1.dataset.symbol === card2.dataset.symbol) {
+          card1.classList.add("matched");
+          card2.classList.add("matched");
+          matchedPairs++;
+          pairsCount.textContent = `${matchedPairs}/8`;
+          gameMessage.textContent = "¡Pareja encontrada! 💖";
+
+          // Mostrar modal con tarjeta
+          currentMatchSymbol = card1.dataset.symbol;
+          openMatchModal(currentMatchSymbol);
+
+          flippedCards = [];
+          canFlip = true;
+
+          if (matchedPairs === 8) {
+            setTimeout(() => {
+              gameMessage.textContent =
+                "¡Completado! Sos increíble, como nuestro amor 💕";
+              createConfetti();
+            }, 500);
+          }
+        } else {
+          gameMessage.textContent = "Intenta de nuevo...";
+          setTimeout(() => {
+            card1.classList.remove("flipped");
+            card2.classList.remove("flipped");
+            card1.textContent = "💗";
+            card2.textContent = "💗";
+            flippedCards = [];
+            canFlip = true;
+            gameMessage.textContent = "Continúa buscando parejas";
+          }, 1000);
+        }
+      }
+
+      resetBtn.addEventListener("click", initGame);
+      initGame();
+
+      // ===== MODAL DE PAREJA ENCONTRADA =====
+      const matchModal = document.getElementById("matchModal");
+      const closeMatchModal = document.getElementById("closeMatchModal");
+      const continueBtn = document.getElementById("continueBtn");
+      const downloadMatchBtn = document.getElementById("downloadMatchBtn");
+      const matchCanvas = document.getElementById("matchCanvas");
+      const matchCtx = matchCanvas.getContext("2d");
+      const matchIcon = document.getElementById("matchIcon");
+
+      function drawMatchCard(symbol) {
+        const width = matchCanvas.width;
+        const height = matchCanvas.height;
+        const symbolName = symbolNames[symbol];
+
+        // Fondo con gradiente
+        const gradient = matchCtx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(0, "#1a0f1f");
+        gradient.addColorStop(0.5, "#2d1535");
+        gradient.addColorStop(1, "#1a0f1f");
+        matchCtx.fillStyle = gradient;
+        matchCtx.fillRect(0, 0, width, height);
+
+        // Marco decorativo doble
+        matchCtx.strokeStyle = "#ff0844";
+        matchCtx.lineWidth = 6;
+        matchCtx.strokeRect(30, 30, width - 60, height - 60);
+
+        matchCtx.strokeStyle = "#ffbe0b";
+        matchCtx.lineWidth = 2;
+        matchCtx.strokeRect(45, 45, width - 90, height - 90);
+
+        // Símbolo grande centrado
+        matchCtx.font = "140px Arial";
+        matchCtx.textAlign = "center";
+        matchCtx.fillText(symbol, width / 2, 220);
+
+        // Título "¡Pareja Encontrada!"
+        matchCtx.fillStyle = "#ffbe0b";
+        matchCtx.font = 'bold 42px "Playfair Display"';
+        matchCtx.fillText("¡Pareja Encontrada!", width / 2, 300);
+
+        // Nombre del símbolo
+        matchCtx.fillStyle = "#ff4d7d";
+        matchCtx.font = '32px "Inter"';
+        matchCtx.fillText(symbolName, width / 2, 350);
+
+        // Línea decorativa
+        matchCtx.strokeStyle = "#ff0844";
+        matchCtx.lineWidth = 2;
+        matchCtx.beginPath();
+        matchCtx.moveTo(width / 2 - 100, 370);
+        matchCtx.lineTo(width / 2 + 100, 370);
+        matchCtx.stroke();
+
+        // Nombres
+        matchCtx.fillStyle = "#f8f9fa";
+        matchCtx.font = 'bold 36px "Playfair Display"';
+        matchCtx.fillText("Claudia & Daniel", width / 2, 430);
+
+        // Mensaje especial
+        matchCtx.fillStyle = "#b8b9c0";
+        matchCtx.font = 'italic 20px "Inter"';
+        matchCtx.fillText(
+          "Un momento especial en nuestro San Valentín del amor",
+          width / 2,
+          480,
+        );
+
+        // Fecha
+        matchCtx.fillStyle = "#ffbe0b";
+        matchCtx.font = '24px "Dancing Script"';
+        matchCtx.fillText("San Valentín 2026", width / 2, 530);
+
+        // Marca de agua
+        matchCtx.fillStyle = "rgba(255, 8, 68, 0.3)";
+        matchCtx.font = '14px "Inter"';
+        matchCtx.fillText("Amor en Páginas", width / 2, height - 30);
+      }
+
+      function openMatchModal(symbol) {
+        matchIcon.textContent = symbol;
+        drawMatchCard(symbol);
+        matchModal.classList.add("active");
+        createConfetti();
+      }
+
+      function closeMatchModalFunc() {
+        matchModal.classList.remove("active");
+      }
+
+      closeMatchModal.addEventListener("click", closeMatchModalFunc);
+      continueBtn.addEventListener("click", closeMatchModalFunc);
+
+      matchModal.addEventListener("click", (e) => {
+        if (e.target === matchModal) {
+          closeMatchModalFunc();
+        }
+      });
+
+      downloadMatchBtn.addEventListener("click", () => {
+        if (!currentMatchSymbol) return;
+        drawMatchCard(currentMatchSymbol);
+        const link = document.createElement("a");
+        const symbolName = symbolNames[currentMatchSymbol].replace(/\s+/g, "-");
+        link.download = `SanValentin-${symbolName}-Claudia-Daniel.png`;
+        link.href = matchCanvas.toDataURL("image/png");
+        link.click();
+      });
+
+      // ===== CONFETTI =====
+      function createConfetti() {
+        const colors = ["#ff0844", "#ffbe0b", "#ff1493", "#ffd700", "#ff69b4"];
+        for (let i = 0; i < 100; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor =
+              colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.top = "-10px";
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 3000);
+          }, i * 30);
+        }
+      }
+
+      // ===== CERTIFICADO DESCARGABLE =====
+      const certificateModal = document.getElementById("certificateModal");
+      const openCertificate = document.getElementById("openCertificate");
+      const closeModal = document.getElementById("closeModal");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const canvas = document.getElementById("certificateCanvas");
+      const ctx = canvas.getContext("2d");
+
+      function drawCertificate() {
+        // Fondo con gradiente
+        const gradient = ctx.createLinearGradient(
+          0,
+          0,
+          canvas.width,
+          canvas.height,
+        );
+        gradient.addColorStop(0, "#1a0f1f");
+        gradient.addColorStop(0.5, "#0f0a1a");
+        gradient.addColorStop(1, "#1a0f1f");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Marco decorativo
+        ctx.strokeStyle = "#ff0844";
+        ctx.lineWidth = 8;
+        ctx.strokeRect(40, 40, canvas.width - 80, canvas.height - 80);
+
+        ctx.strokeStyle = "#ffbe0b";
+        ctx.lineWidth = 3;
+        ctx.strokeRect(55, 55, canvas.width - 110, canvas.height - 110);
+
+        // Título
+        ctx.fillStyle = "#ffbe0b";
+        ctx.font = 'bold 60px "Playfair Display"';
+        ctx.textAlign = "center";
+        ctx.fillText("Certificado de San Valentín", canvas.width / 2, 140);
+
+        // Corazón decorativo
+        ctx.font = "80px Arial";
+        ctx.fillText("💖", canvas.width / 2, 240);
+
+        // Texto principal
+        ctx.fillStyle = "#f8f9fa";
+        ctx.font = '32px "Inter"';
+        ctx.fillText("Este certificado confirma que", canvas.width / 2, 320);
+
+        ctx.fillStyle = "#ff4d7d";
+        ctx.font = 'bold 48px "Playfair Display"';
+        ctx.fillText("Claudia & Daniel", canvas.width / 2, 390);
+
+        ctx.fillStyle = "#f8f9fa";
+        ctx.font = '28px "Inter"';
+        ctx.fillText(
+          "celebran el amor más puro e infinito",
+          canvas.width / 2,
+          450,
+        );
+
+        // Fecha
+        ctx.fillStyle = "#ffbe0b";
+        ctx.font = '36px "Dancing Script"';
+        ctx.fillText("San Valentín 2026", canvas.width / 2, 520);
+
+        // Mensaje personalizado
+        ctx.fillStyle = "#b8b9c0";
+        ctx.font = 'italic 24px "Inter"';
+        ctx.fillText(
+          "En este día del amor, celebro todo lo que sos para mí.",
+          canvas.width / 2,
+          600,
+        );
+        ctx.fillText(
+          "Sos mi todo, mi para siempre. Te amo infinitamente.",
+          canvas.width / 2,
+          640,
+        );
+
+        // Firma
+        ctx.fillStyle = "#ff4d7d";
+        ctx.font = 'bold 32px "Dancing Script"';
+        ctx.fillText("Con todo mi amor, Claudia 💕", canvas.width / 2, 720);
+      }
+
+      openCertificate.addEventListener("click", () => {
+        certificateModal.classList.add("active");
+        drawCertificate();
+      });
+
+      closeModal.addEventListener("click", () => {
+        certificateModal.classList.remove("active");
+      });
+
+      certificateModal.addEventListener("click", (e) => {
+        if (e.target === certificateModal) {
+          certificateModal.classList.remove("active");
+        }
+      });
+
+      downloadBtn.addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.download = "Certificado-SanValentin-Claudia-Daniel.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+
+      // Dibujar certificado al cargar
+      drawCertificate();
+
+      // ===== ANIMACIONES DE SCROLL =====
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".reason-card, .timeline-item, .game-container")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "all 0.6s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>
